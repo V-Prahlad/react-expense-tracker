@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './component/Header';
+import SearchBox from './component/SearchBox';
+import BalanceCard from './component/BalanceCard';
+import Footer from './component/Footer';
+import Card from './component/Card';
 
-function App() {
+import ExpenseData from './ExpenseData/ExpenseData';
+
+const App = () => {
+  const [data, setData] = useState(ExpenseData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <SearchBox />
+      <BalanceCard data={data} />
+      <span className="entry">Showing {data.length} entry</span>
+      {data.map((data, key) => (
+        <div key={key}>
+          <Card data={data} />
+        </div>
+      ))}
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
