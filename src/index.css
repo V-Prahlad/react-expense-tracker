@@ -153,6 +153,7 @@ input::placeholder {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
   height: 45px;
   font-size: 18px;
   color: black;
@@ -165,4 +166,15 @@ input::placeholder {
 
 .cash__out {
   color: rgb(212, 67, 67);
+}
+
+@media screen and (max-width: 1457px) {
+  .card {
+    background-color: rgb(255, 255, 255);
+    height: 120px;
+    width: 90vw;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 4px;
+  }
 }
